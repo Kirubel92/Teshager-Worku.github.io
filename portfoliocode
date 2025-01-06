@@ -1,0 +1,558 @@
+<html>
+<head>
+  <base href="https://fontawesome.com/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teshager Worku - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      
+      /* Add dark mode colors */
+      --primary-dark: #1a1a1a;
+      --secondary-dark: #ffffff;
+      --accent-dark: #e74c3c;
+      --light-dark: #333333;
+      --text-dark: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--primary);
+      overflow-x: hidden;
+    }
+
+    body.dark-mode {
+      background: var(--primary-dark);
+      color: var(--text-dark);
+    }
+
+    .header {
+      background: var(--primary);
+      color: white;
+      padding: clamp(1.5rem, 4vw, 2.5rem) 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-mode .header {
+      background: var(--light-dark);
+      color: var(--text-dark);
+    }
+
+    .header h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--secondary);
+      animation: slide 2s infinite;
+    }
+
+    @keyframes slide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .profile-pic {
+      width: min(150px, 30vw);
+      height: min(150px, 30vw);
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      overflow: hidden;
+      border: 3px solid var(--secondary);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic:hover img {
+      transform: scale(1.1);
+    }
+
+    nav {
+      background: white;
+      padding: clamp(0.5rem, 2vw, 1rem);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .dark-mode nav {
+      background: var(--primary-dark);
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 3vw, 2rem);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+      transition: color 0.3s;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      padding: 0.5rem;
+    }
+
+    .dark-mode nav a {
+      color: var(--text-dark);
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .dark-mode nav a:hover {
+      color: var(--secondary-dark);
+    }
+
+    .section {
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin: clamp(1rem, 3vw, 2rem) auto;
+      max-width: 1200px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      width: min(95%, 1200px);
+    }
+
+    .dark-mode .section {
+      background: var(--light-dark);
+      color: var(--text-dark);
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+    }
+
+    .section h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 1rem;
+    }
+
+    .section p {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      line-height: 1.6;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: clamp(0.5rem, 2vw, 1rem);
+      margin-top: 1rem;
+    }
+
+    .skill-card {
+      background: var(--light);
+      padding: clamp(1rem, 3vw, 1.5rem);
+      border-radius: 5px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .dark-mode .skill-card {
+      background: var(--primary-dark);
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+    }
+
+    .skill-card i {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .skill-card h3 {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card p {
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      margin-bottom: 1rem;
+    }
+
+    .skill-percentage {
+      width: 100%;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .dark-mode .skill-percentage {
+      background: var(--light-dark);
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: var(--secondary);
+      border-radius: 4px;
+      transition: width 1.5s ease-in-out;
+      width: 0;
+    }
+
+    .dark-mode .skill-fill {
+      background: var(--secondary-dark);
+    }
+
+    .skill-level {
+      font-size: 0.9rem;
+      color: var(--primary);
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .dark-mode .skill-card:hover {
+      box-shadow: 0 5px 15px rgba(255,255,255,0.2);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: clamp(0.5rem, 2vw, 1rem);
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: var(--primary);
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      transition: all 0.3s;
+      padding: 0.5rem;
+      border-radius: 50%;
+      text-decoration: none;
+    }
+
+    .dark-mode .social-links a {
+      color: var(--text-dark);
+    }
+
+    .social-links a:hover {
+      color: var(--secondary);
+      transform: translateY(-3px);
+      background: var(--light);
+    }
+
+    .dark-mode .social-links a:hover {
+      color: var(--secondary-dark);
+      background: var(--primary-dark);
+    }
+
+    .skill-card i.fa-tasks { color: #e74c3c; }
+    .skill-card i.fa-comments { color: #27ae60; }
+    .skill-card i.fa-lightbulb { color: #f1c40f; }  
+    .skill-card i.fa-users { color: #8e44ad; }
+
+    .project-card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    }
+
+    .project-card p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .project-card ul {
+      list-style-position: inside;
+      margin: 1rem 0;
+      line-height: 1.6;
+    }
+
+    .project-card .project-badge {
+      background: var(--secondary);
+      color: white;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+    }
+
+    .dark-mode .project-card {
+      background: var(--light-dark) !important;
+      color: var(--text-dark) !important;
+      box-shadow: 0 2px 5px rgba(255,255,255,0.1) !important;
+    }
+
+    .dark-mode .project-card h3 {
+      color: var(--text-dark) !important;
+    }
+
+    .dark-mode .project-card ul {
+      color: var(--text-dark) !important;
+    }
+
+    .dark-mode .project-card .project-badge {
+      background: var(--secondary-dark) !important;
+      color: var(--primary-dark) !important;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        margin: 1rem auto;
+        padding: 1.2rem;
+      }
+
+      nav ul {
+        gap: 0.5rem;
+      }
+
+      .skills {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding: 1.2rem 1rem;
+      }
+
+      .social-links {
+        gap: 0.8rem;
+      }
+
+      .section {
+        padding: 1rem;
+      }
+    }
+
+    /* Add dark mode toggle button styles */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--secondary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: all 0.3s;
+      z-index: 1000;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .dark-mode .theme-toggle {
+      background: var(--secondary-dark);
+      color: var(--primary-dark);
+      box-shadow: 0 2px 5px rgba(255,255,255,0.2);
+    }
+    
+    .dark-mode #skills h3 {
+      color: var(--secondary-dark) !important;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="profile-pic">
+      <img src="C:\Users\HP\thagreat.jpg" alt="Teshager Worku" id="profileImage" onerror="this.outerHTML=&apos;TW&apos;">
+    </div>
+    <h1>Teshager Worku</h1>
+    <p>Computer Science Graduate | Product Developer</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Hello! I&apos;m Teshager Worku, a passionate Computer Science graduate with a strong foundation in software development. I enjoy solving complex problems and creating efficient solutions through code.</p>
+    <p style="margin-top: 1rem;">
+      <strong>Place of Birth:</strong> Oromiya Regional State, Moyale Town<br>
+      <strong>Contact:</strong> +251932643042<br>
+      <strong>Email:</strong> teshagerw76@gmail.com
+    </p>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <h3 style="margin: 1rem 0; color: var(--secondary);">Technical Skills</h3>
+    <div class="skills">
+      <div class="skill-card">
+        <i class="fas fa-code"></i>
+        <h3>Programming</h3>
+        <p>Java, Python, JavaScript</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="90"></div>
+        </div>
+        <div class="skill-level">90%</div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-database"></i>
+        <h3>Database</h3>
+        <p>MySQL, MongoDB</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="85"></div>
+        </div>
+        <div class="skill-level">85%</div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-laptop-code"></i>
+        <h3>Web Development</h3>
+        <p>HTML, CSS, React</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="88"></div>
+        </div>
+        <div class="skill-level">88%</div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile Development</h3>
+        <p>Android, React Native</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="82"></div>
+        </div>
+        <div class="skill-level">82%</div>
+      </div>
+    </div>
+
+    <h3 style="margin: 2rem 0 1rem; color: var(--secondary);">Professional Skills</h3>
+    <div class="skills">
+      <div class="skill-card">
+        <i class="fas fa-tasks"></i>
+        <h3>Project Management</h3>
+        <p>Planning, Organization, Leadership</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="85"></div>
+        </div>
+        <div class="skill-level">85%</div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-comments"></i>
+        <h3>Communication</h3>
+        <p>Written, Verbal, Presentation</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="92"></div>
+        </div>
+        <div class="skill-level">92%</div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Creativity</h3>
+        <p>Problem Solving, Innovation</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="88"></div>
+        </div>
+        <div class="skill-level">88%</div>
+      </div>
+      <div class="skill-card">
+        <i class="fas fa-users"></i>
+        <h3>Team Work</h3>
+        <p>Collaboration, Leadership</p>
+        <div class="skill-percentage">
+          <div class="skill-fill" data-percentage="90"></div>
+        </div>
+        <div class="skill-level">90%</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h3>Web-Based Daily Expense Tracker (DET)</h3>
+      <p>
+        For my undergraduate senior research project, I developed a Web-Based Daily Expense Tracker (DET). The system was designed to address the common problem of overspending by helping users manage their daily expenses more effectively.
+      </p>
+      <p>
+        <strong>Key Features:</strong>
+      </p>
+      <ul>
+        <li>Daily budget setting functionality</li>
+        <li>Real-time expense tracking</li>
+        <li>Automated warning system for over-budget spending</li>
+        <li>User-friendly interface for expense management</li>
+      </ul>
+      <div class="project-badge">
+        <i class="fas fa-star"></i> Senior Research Project
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out to me for any opportunities or collaborations.</p>
+    <div class="social-links">
+      <a href="mailto:teshagerw76@gmail.com" title="Send me an email"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+251932643042" title="Call me"><i class="fas fa-phone"></i></a>
+      <a href="https://wa.me/251932643042" title="Message me on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://t.me/251932643042" title="Message me on Telegram"><i class="fab fa-telegram"></i></a>
+    </div>
+  </section>
+
+  <button class="theme-toggle" id="themeToggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <script>const themeToggle = document.getElementById('themeToggle');
+const body = document.body;
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+});</script>
+</body>
+</html>
